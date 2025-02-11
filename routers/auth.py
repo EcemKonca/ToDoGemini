@@ -4,8 +4,8 @@ from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from starlette import status
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
-from database import SessionLocal
-from models import User
+from ..database import SessionLocal
+from ..models import User
 from passlib.context import CryptContext
 from jose import jwt, JWTError
 from datetime import timedelta, datetime, timezone
@@ -13,7 +13,7 @@ from fastapi.templating import Jinja2Templates
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
 
-templates = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="app/templates")
 
 SECRET_KEY = "4alkt32zb9tq4ykjsvmczuz4m24gcifpiu8vlkoxdge28yr7dqo219dpzb7i8ttp"
 ALGORITHM = "HS256"
